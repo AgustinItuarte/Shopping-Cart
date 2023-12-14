@@ -1,0 +1,30 @@
+html, body {
+    max-width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, .container {
+    height: 100vh;
+    width: 100vw;
+}
+
+.container, .side-bar, .content {
+    display: flex;
+    flex-direction: row;
+}
+
+.side-bar {
+    background-color: aqua;
+    flex-direction: column;
+    width: 20vw;
+}
+
+.content {
+    background-color: cornflowerblue;
+    width: 80vw;
+}

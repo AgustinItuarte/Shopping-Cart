@@ -27,13 +27,14 @@ import Shop from "./Shop";
 
 function Home() {
     return(
-        <div>
-            <ul>
+        <div className="container">
+            <ul className="side-bar">
                 <li><Link to={"/"}>Home</Link></li>
                 <li><Link to={"/shop"}>Shop</Link></li>
                 <li><Link to={"/cart"}>Cart</Link></li>
             </ul>
             <Outlet/>
+            <div className="content"></div>
         </div>
     )
 }

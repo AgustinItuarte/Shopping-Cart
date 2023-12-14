@@ -11,10 +11,8 @@ const Router = () => {
       path: "/",
       element: <Home/>,
       children: [
-
         {path: "/shop", element: <Shop/>},
         {path: "/cart", element: <Cart/>},
-
       ]
     },
   ])
