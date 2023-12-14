@@ -7,13 +7,13 @@
 export default GetData(); */
 import { Link } from "react-router-dom";
 
-function Shop() {
+function Cart() {
     return(
         <div>
-            <h1>Shop</h1>
+            <h1>Cart</h1>
             <Link to={"/"}>Atras</Link>
         </div>
     )
 }
 
-export default Shop;
+export default Cart;
