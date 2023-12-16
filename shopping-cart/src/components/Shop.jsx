@@ -1,31 +1,35 @@
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function GetData() {
-
+const GetData = () => {
     const [items, setItems] = useState(null);
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const [loading, setLoading] = useState(true);
+  
     useEffect(() => {
-
-        fetch('https://fakestoreapi.com/products')
-        .then((response) => response.json())
-        .then((response) => setItems(response));
-        
+      fetch("https://fakestoreapi.com/products", { mode: "cors" })
+        .then((response) => {
+          if (response.status >= 400) {
+            throw new Error("server error");
+          }
+          return response.json();
+        })
+        .then((response) => setItems(response))
+        .catch((error) => setError(error))
+        .finally(() => setLoading(false));
     }, []);
 
-    if(items != null) {
-        return items;
-    }
-    
+    return { items, error, loading }
 }
 
-function Shop() {
+const Shop = () => {
 
-    const data = GetData();
-    console.log(data)
-    /* return data.map(items => {
+    const { items, error, loading } = GetData();
+}
+
+/* function Shop() {
+
+    GetData().then((items) => console.log(items));
+    return data.map(items => {
 
         return(
             <div>
@@ -34,10 +38,10 @@ function Shop() {
             </div>
         )
 
-    }); */
+    });
     
     
-}
+} */
 
 /* function Shop() {
     return(
