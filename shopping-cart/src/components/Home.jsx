@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import Shop from "./Shop";
 
 /* const Home = () => {
 
@@ -33,8 +32,7 @@ function Home() {
                 <li><Link to={"/shop"}>Shop</Link></li>
                 <li><Link to={"/cart"}>Cart</Link></li>
             </ul>
-            <Outlet/>
-            <div className="content"></div>
+            <div className="content"><Outlet/></div>
         </div>
     )
 }

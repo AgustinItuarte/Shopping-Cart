@@ -18,6 +18,10 @@ body, .container {
     flex-direction: row;
 }
 
+.side-bar, .content {
+    padding: 2%;
+}
+
 .side-bar {
     background-color: aqua;
     flex-direction: column;
