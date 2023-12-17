@@ -16,7 +16,7 @@ const GetData = () => {
         .then((response) => setItems(response))
         .catch((error) => setError(error))
         .finally(() => setLoading(false));
-    }, []);
+    }, [], console.log(items));
 
     return { items, error, loading }
 }
@@ -24,6 +24,21 @@ const GetData = () => {
 const Shop = () => {
 
     const { items, error, loading } = GetData();
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error loading the page</div>;
+
+    return (
+        items.map(item => {
+
+            return(
+                <div key={item.id} className="shop-item">
+
+                </div>
+            )
+    
+        })
+    )
 }
 
 /* function Shop() {
