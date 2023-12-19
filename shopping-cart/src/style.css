@@ -32,3 +32,10 @@ body, .container {
     background-color: cornflowerblue;
     width: 80vw;
 }
+
+.shop-item {
+    border: 3px solid black;
+    margin: 5px;
+    height: 10%;
+    width: 10%;
+}
