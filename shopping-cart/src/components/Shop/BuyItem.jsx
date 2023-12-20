@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-const buyItem = (items, selectItem) => {
+const buyItem = (item) => {
 
-
+    console.log(item)
 
 }
 

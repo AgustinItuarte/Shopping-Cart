@@ -14,7 +14,7 @@ const Shop = () => {
             return(
                 <div key={item.id} className="shop-item">
                     <p>Name</p>
-                    <button id={} onClick={buyItem(items, items[])}>Add to cart</button>
+                    <button onClick={() => buyItem(item)}>Add to cart</button>
                 </div>
             )
     
