@@ -1,9 +1,11 @@
 import GetData from "./GetData";
-import buyItem from "./BuyItem";
+import { useState } from "react";
 
 const Shop = () => {
 
+    const [buyedItems, setBuyedItems] = useState([])
     const { items, error, loading } = GetData ();
+    console.log(buyedItems)
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error loading the page</div>;
@@ -14,7 +16,7 @@ const Shop = () => {
             return(
                 <div key={item.id} className="shop-item">
                     <p>Name</p>
-                    <button onClick={() => buyItem(item)}>Add to cart</button>
+                    <button onClick={() => setBuyedItems(item)}>Add to cart</button>
                 </div>
             )
     
