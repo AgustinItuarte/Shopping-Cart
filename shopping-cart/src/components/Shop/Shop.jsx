@@ -7,6 +7,12 @@ const Shop = () => {
     const { items, error, loading } = GetData ();
     console.log(buyedItems)
 
+    const buyItem = (item) => {
+
+        setBuyedItems(current => [...current, item]);
+
+    }
+
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error loading the page</div>;
 
@@ -16,7 +22,7 @@ const Shop = () => {
             return(
                 <div key={item.id} className="shop-item">
                     <p>Name</p>
-                    <button onClick={() => setBuyedItems(item)}>Add to cart</button>
+                    <button onClick={() => buyItem(item)}>Add to cart</button>
                 </div>
             )
     
