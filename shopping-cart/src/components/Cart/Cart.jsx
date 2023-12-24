@@ -1,11 +1,28 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function Cart() {
-    return(
-        <div>
-            <h1>Cart</h1>
-            <Link to={"/"}>Atras</Link>
-        </div>
+
+    const [buyedItems, setBuyedItems] = useState([])
+    
+    useEffect(() => {
+
+        const items = JSON.parse(localStorage.getItem('items'));
+        if(items) {
+            setBuyedItems(items);
+        }
+    }, []);
+
+    return (
+        buyedItems.map(item => {
+
+            return(
+                <div key={item.id} className="shop-item">
+                    <p>{item.title}</p>
+                </div>
+            )
+    
+        })
     )
 }
 

@@ -1,11 +1,15 @@
 import GetData from "./GetData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Shop = () => {
 
     const [buyedItems, setBuyedItems] = useState([])
     const { items, error, loading } = GetData ();
     console.log(buyedItems)
+
+    useEffect(() => {
+        localStorage.setItem('items', JSON.stringify(buyedItems));
+    }, [buyedItems]);
 
     const buyItem = (item) => {
 
@@ -28,6 +32,7 @@ const Shop = () => {
     
         })
     )
+
 }
 
 export default Shop;
