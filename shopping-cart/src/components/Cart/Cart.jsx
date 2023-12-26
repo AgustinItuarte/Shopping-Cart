@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function Cart() {
 
     const [buyedItems, setBuyedItems] = useState([])
-    
-    useEffect(() => {
+    console.log(buyedItems)
 
+    useEffect(() => {
         const items = JSON.parse(localStorage.getItem('items'));
         if(items) {
             setBuyedItems(items);
@@ -19,6 +18,7 @@ function Cart() {
             return(
                 <div key={item.id} className="shop-item">
                     <p>{item.title}</p>
+                    <button>Delete</button>
                 </div>
             )
     

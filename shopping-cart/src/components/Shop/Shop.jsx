@@ -5,16 +5,23 @@ const Shop = () => {
 
     const [buyedItems, setBuyedItems] = useState([])
     const { items, error, loading } = GetData ();
-    console.log(buyedItems)
-
+     
     useEffect(() => {
-        localStorage.setItem('items', JSON.stringify(buyedItems));
+        if (buyedItems.length > 0) {
+            localStorage.setItem('items', JSON.stringify(buyedItems));
+        }
     }, [buyedItems]);
 
     const buyItem = (item) => {
 
-        setBuyedItems(current => [...current, item]);
-
+        const itemsCart = JSON.parse(localStorage.getItem('items'));
+        if (itemsCart) {
+            setBuyedItems(itemsCart);
+            setBuyedItems(current => [...current, item]);
+        } else {
+            setBuyedItems(current => [...current, item]);
+        }       
+        
     }
 
     if (loading) return <div>Loading...</div>;
