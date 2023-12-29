@@ -24,6 +24,22 @@ const Shop = () => {
         
     }
 
+    const checkArray = (item) => {
+              
+        const itemsCart = JSON.parse(localStorage.getItem('items'));
+        if (itemsCart) {
+            for (let i = 0; i < itemsCart.length; i++) {
+                if (itemsCart[i].id === item.id) {
+                    return console.log('Ya has comprado ese item'); //Aviso en la App
+                }                
+            }
+            buyItem(item);
+        } else {
+            buyItem(item);
+        }
+
+    }
+
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error loading the page</div>;
 
@@ -33,7 +49,7 @@ const Shop = () => {
             return(
                 <div key={item.id} className="shop-item">
                     <p>Name</p>
-                    <button onClick={() => buyItem(item)}>Add to cart</button>
+                    <button onClick={() => checkArray(item)}>Add to cart</button>
                 </div>
             )
     
