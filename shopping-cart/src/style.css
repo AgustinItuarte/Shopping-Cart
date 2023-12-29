@@ -35,7 +35,8 @@ body, .container {
 
 .shop-item {
     border: 3px solid black;
+    
     margin: 5px;
-    height: 10%;
+    height: fit-content;
     width: 10%;
 }
