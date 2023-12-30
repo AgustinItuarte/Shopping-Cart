@@ -19,7 +19,7 @@ function Cart() {
             return(
                 <div key={item.id} className="shop-item">
                     <p>{item.title}</p>
-                    <p>Amount: </p>
+                    <p>Amount: {item.ammount}</p>
                     <p>Price: </p>
                     <button>Delete</button>
                     <button onClick={() => AddItem(item, buyedItems)}>+</button>

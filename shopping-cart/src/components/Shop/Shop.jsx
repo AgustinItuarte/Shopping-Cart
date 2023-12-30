@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 const Shop = () => {
 
-    const [buyedItems, setBuyedItems] = useState([])
+    const [buyedItems, setBuyedItems] = useState([]);
     const { items, error, loading } = GetData ();
      
     useEffect(() => {
