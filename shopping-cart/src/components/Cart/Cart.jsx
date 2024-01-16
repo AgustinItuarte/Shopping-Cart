@@ -4,35 +4,41 @@ import { useState, useEffect } from "react";
 function Cart() {
 
     const [buyedItems, setBuyedItems] = useState([])
-    /* const [flag, setFlag] = useState(false) */
     
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem('items'));
-        
-        if (items.length !== buyedItems.length) {
-            localStorage.setItem('items', JSON.stringify(items));
-            /* setBuyedItems(items); */
+
+        if (items) {
+            if (items.length !== buyedItems.length) {
+                setBuyedItems(items);
+            } if (buyedItems.length === 0) {
+                setBuyedItems(items);
+            }
         } 
-        if (buyedItems.length === 0) {
-            setBuyedItems(items);
-        }
-        
-    }, [buyedItems], () => console.log('useeffect'));
+                
+    }, [buyedItems]);
+
 
     const AddItem = (item, itemList) => {
 
         for (let i = 0; i < itemList.length; i++) {
     
-            if(item.ammount >= 0 && itemList[i].id === item.id) {
+            if (item.ammount >= 0 && itemList[i].id === item.id) {
+
                 item.ammount++;
-                console.log('Existe');
-                console.log(buyedItems[i].ammount)
-                setBuyedItems(itemList)
-            } if(!(item.ammount) && itemList[i].id === item.id) {
+                const array = [...itemList];
+                localStorage.setItem('items', JSON.stringify(itemList));
+                setBuyedItems(array)
+
+            } 
+
+            if (!(item.ammount) && itemList[i].id === item.id) {
+
+                const array = [...itemList];
                 itemList[i].ammount = 1;
-                console.log('No existe')
-                console.log(buyedItems[i].ammount);
-                setBuyedItems(itemList)
+                localStorage.setItem('items', JSON.stringify(itemList));
+                setBuyedItems(array)
+
             };
         }   
     
