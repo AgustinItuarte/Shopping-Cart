@@ -48,7 +48,7 @@ const Shop = () => {
 
             return(
                 <div key={item.id} className="shop-item">
-                    <p>Name</p>
+                    <p>name</p>
                     <button onClick={() => checkArray(item)}>Add to cart</button>
                 </div>
             )
