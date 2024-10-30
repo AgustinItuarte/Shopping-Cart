@@ -16,16 +16,20 @@ function Cart() {
             }
         } 
                 
-    }, [buyedItems]);
+    }, [buyedItems], console.log(buyedItems));
 
-
-    const AddItem = (item, itemList) => {
+    const handleAddDeleteButtons = (item, itemList, event) => {
 
         for (let i = 0; i < itemList.length; i++) {
     
             if (item.ammount >= 0 && itemList[i].id === item.id) {
-
-                item.ammount++;
+                
+                if (event.target.className === 'additem-btn') {
+                    item.ammount++;
+                } else {
+                    item.ammount--;
+                }
+                
                 const array = [...itemList];
                 localStorage.setItem('items', JSON.stringify(itemList));
                 setBuyedItems(array)
@@ -52,8 +56,9 @@ function Cart() {
                     <p>{item.title}</p>
                     <p>Amount: {item.ammount}</p>
                     <p>Price: </p>
-                    <button>Delete</button>
-                    <button onClick={() => {AddItem(item, buyedItems)}}>+</button>
+                    <button className="delete-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>Delete</button>
+                    <button className="additem-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>+</button>
+                    {/* <button className="additem-btn" onClick={(event) => {handleClick(event)}}>+</button> */}
                 </div>
             )
     
