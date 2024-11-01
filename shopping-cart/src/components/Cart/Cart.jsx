@@ -10,10 +10,12 @@ function Cart() {
 
         if (items) {
             if (items.length !== buyedItems.length) {
+                console.log('hola')
                 setBuyedItems(items);
-            } if (buyedItems.length === 0) {
+            } /* if (buyedItems.length === 0) {
+                console.log('hola')
                 setBuyedItems(items);
-            }
+            } */
         } 
                 
     }, [buyedItems], console.log(buyedItems));
@@ -34,11 +36,20 @@ function Cart() {
                 localStorage.setItem('items', JSON.stringify(itemList));
                 setBuyedItems(array)
 
-            } 
+            };
 
             if (!(item.ammount) && itemList[i].id === item.id) {
-
+                
                 const array = [...itemList];
+                
+                if (item.ammount === 0) {
+                    console.log('entra')
+                    itemList.splice([i], 1)
+                    localStorage.setItem('items', JSON.stringify(itemList));
+                    setBuyedItems(array)
+                    return
+                }
+               
                 itemList[i].ammount = 1;
                 localStorage.setItem('items', JSON.stringify(itemList));
                 setBuyedItems(array)
