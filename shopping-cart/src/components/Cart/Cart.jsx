@@ -10,12 +10,8 @@ function Cart() {
 
         if (items) {
             if (items.length !== buyedItems.length) {
-                console.log('hola')
                 setBuyedItems(items);
-            } /* if (buyedItems.length === 0) {
-                console.log('hola')
-                setBuyedItems(items);
-            } */
+            }
         } 
                 
     }, [buyedItems], console.log(buyedItems));
@@ -43,7 +39,6 @@ function Cart() {
                 const array = [...itemList];
                 
                 if (item.ammount === 0) {
-                    console.log('entra')
                     itemList.splice([i], 1)
                     localStorage.setItem('items', JSON.stringify(itemList));
                     setBuyedItems(array)
@@ -69,7 +64,6 @@ function Cart() {
                     <p>Price: </p>
                     <button className="delete-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>Delete</button>
                     <button className="additem-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>+</button>
-                    {/* <button className="additem-btn" onClick={(event) => {handleClick(event)}}>+</button> */}
                 </div>
             )
     

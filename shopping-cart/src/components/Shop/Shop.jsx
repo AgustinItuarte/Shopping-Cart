@@ -17,10 +17,9 @@ const Shop = () => {
         const itemsCart = JSON.parse(localStorage.getItem('items'));
         if (itemsCart) {
             setBuyedItems(itemsCart);
+            item.ammount = 1;
             setBuyedItems(current => [...current, item]);
-        } else {
-            setBuyedItems(current => [...current, item]);
-        }       
+        }
         
     }
 
@@ -30,11 +29,9 @@ const Shop = () => {
         if (itemsCart) {
             for (let i = 0; i < itemsCart.length; i++) {
                 if (itemsCart[i].id === item.id) {
-                    return console.log('Ya has comprado ese item'); //Aviso en la App
+                    return alert('Ya has comprado ese item')
                 }                
             }
-            buyItem(item);
-        } else {
             buyItem(item);
         }
 
