@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 /* import AddItem from "./AddItem"; */
 
-function Cart() {
+function Cart() { // Handles functionality of the cart page.
 
     const [buyedItems, setBuyedItems] = useState([])
     
@@ -16,7 +16,7 @@ function Cart() {
                 
     }, [buyedItems], console.log(buyedItems));
 
-    const handleAddDeleteButtons = (item, itemList, event) => {
+    const handleAddDeleteButtons = (item, itemList, event) => { // Handles add and delete item buttons functionality.
 
         for (let i = 0; i < itemList.length; i++) {
     
@@ -54,6 +54,16 @@ function Cart() {
     
     }
 
+    const inputHandler = (item, event) => {
+
+        const array = [...buyedItems];
+        item.ammount = event.target.value;
+        localStorage.setItem('items', JSON.stringify(array));
+        setBuyedItems(array)
+        console.log(buyedItems)
+
+    }
+
     return (
         buyedItems.map(item => {
 
@@ -62,8 +72,9 @@ function Cart() {
                     <p>{item.title}</p>
                     <p>Amount: {item.ammount}</p>
                     <p>Price: </p>
-                    <button className="delete-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>Delete</button>
                     <button className="additem-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>+</button>
+                    <input type="number" value={item.ammount} onChange={(event) => {inputHandler(item, event)}}/>
+                    <button className="delete-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>Delete</button>
                 </div>
             )
     
