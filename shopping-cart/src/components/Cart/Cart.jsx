@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-/* import AddItem from "./AddItem"; */
+import DeleteItem from '../Cart/DeleteItem.jsx';
 
 function Cart() { // Handles functionality of the cart page.
 
@@ -58,9 +58,9 @@ function Cart() { // Handles functionality of the cart page.
 
         const array = [...buyedItems];
         item.ammount = event.target.value;
+        DeleteItem(item, array);
         localStorage.setItem('items', JSON.stringify(array));
         setBuyedItems(array)
-        console.log(buyedItems)
 
     }
 
