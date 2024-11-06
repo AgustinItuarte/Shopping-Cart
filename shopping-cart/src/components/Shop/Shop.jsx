@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const Shop = () => {
 
     const [buyedItems, setBuyedItems] = useState([]);
-    const { items, error, loading } = GetData ();
+    const { items, error, loading } = GetData();
      
     useEffect(() => {
         if (buyedItems.length > 0) {
@@ -18,6 +18,8 @@ const Shop = () => {
         if (itemsCart) {
             setBuyedItems(itemsCart);
             item.ammount = 1;
+            setBuyedItems(current => [...current, item]);
+        } else {
             setBuyedItems(current => [...current, item]);
         }
         
@@ -33,6 +35,8 @@ const Shop = () => {
                 }                
             }
             buyItem(item);
+        } else {
+            buyItem(item);
         }
 
     }
@@ -45,7 +49,7 @@ const Shop = () => {
 
             return(
                 <div key={item.id} className="shop-item">
-                    <p>item title</p>
+                    <p>{item.title}</p>
                     <button onClick={() => checkArray(item)}>Add to cart</button>
                 </div>
             )
