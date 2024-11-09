@@ -38,7 +38,7 @@ function Cart() { // Handles functionality of the cart page.
                 
                 const array = [...itemList];
                 
-                if (item.ammount === 0) {
+                if (item.ammount <= 0) {
                     itemList.splice([i], 1)
                     localStorage.setItem('items', JSON.stringify(itemList));
                     setBuyedItems(array)
@@ -64,21 +64,34 @@ function Cart() { // Handles functionality of the cart page.
 
     }
 
-    return (
-        buyedItems.map(item => {
+    const BuyedItems = () => {
+        return(
+            buyedItems.map(item => {
 
-            return(
-                <div key={item.id} className="shop-item">
-                    <p>{item.title}</p>
-                    <p>Amount: {item.ammount}</p>
-                    <p>Price: </p>
-                    <button className="additem-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>+</button>
-                    <input type="number" value={item.ammount} onChange={(event) => {inputHandler(item, event)}}/>
-                    <button className="delete-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>Delete</button>
-                </div>
-            )
-    
-        })
+                return(
+                    <div key={item.id} className="shop-item">
+                        <p>{item.title}</p>
+                        <p>Amount: {item.ammount}</p>
+                        <p>Price: </p>
+                        <button className="additem-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>+</button>
+                        <input type="number" value={item.ammount} onChange={(event) => {inputHandler(item, event)}}/>
+                        <button className="delete-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>Delete</button>
+                        
+                    </div>
+                    
+                )
+        
+            })
+        )
+    }
+
+    return (
+        <div className="cart-container">
+            <div className="subtotal"><h1>Cart</h1></div>
+            <div className="cart-items"><BuyedItems/></div>
+            <div className="subtotal"><p>Subtotal:</p></div>
+        </div>      
+
     )
 }
 

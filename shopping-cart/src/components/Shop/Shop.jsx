@@ -20,6 +20,7 @@ const Shop = () => {
             item.ammount = 1;
             setBuyedItems(current => [...current, item]);
         } else {
+            item.ammount = 1;
             setBuyedItems(current => [...current, item]);
         }
         
