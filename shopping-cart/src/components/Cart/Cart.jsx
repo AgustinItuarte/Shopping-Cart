@@ -64,35 +64,29 @@ function Cart() { // Handles functionality of the cart page.
 
     }
 
-    const BuyedItems = () => {
-        return(
-            buyedItems.map(item => {
+        return (
+            <div className="cart-container">
+                <div className="subtotal"><h1>Cart</h1></div>
+                <ul className="cart-items">
+                    {buyedItems.map(item => {
 
-                return(
-                    <div key={item.id} className="shop-item">
-                        <p>{item.title}</p>
-                        <p>Amount: {item.ammount}</p>
-                        <p>Price: {item.price}</p>
-                        <button className="additem-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>+</button>
-                        <input type="number" value={item.ammount} onChange={(event) => {inputHandler(item, event)}}/>
-                        <button className="delete-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>Delete</button>
-                        
-                    </div>
-                    
-                )
-        
-            })
+                        return(
+                            <li key={item.id} className="shop-item">
+                                <p>{item.title}</p>
+                                <p>Price: {item.price}</p>
+                                <button className="additem-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>+</button>
+                                <input type="number" value={item.ammount} onChange={(event) => {inputHandler(item, event)}}/>
+                                <button className="delete-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>Delete</button>
+                                
+                            </li>
+                            
+                        )
+
+                    })}
+                </ul>
+                <div className="subtotal"><p>Subtotal:</p></div>
+            </div>    
         )
-    }
-
-    return (
-        <div className="cart-container">
-            <div className="subtotal"><h1>Cart</h1></div>
-            <div className="cart-items"><BuyedItems/></div>
-            <div className="subtotal"><p>Subtotal:</p></div>
-        </div>      
-
-    )
 }
 
 export default Cart;

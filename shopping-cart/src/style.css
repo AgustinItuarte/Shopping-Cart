@@ -33,7 +33,7 @@ body, .container {
     width: 80vw;
 }
 
-.shop-item, .shop-item{
+.shop-item{
     border: 3px solid black;
     margin: 5px;
     height: fit-content;
