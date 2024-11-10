@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import DeleteItem from '../Cart/DeleteItem.jsx';
+import PriceHandler from '../Cart/PriceHandler.jsx';
 
 function Cart() { // Handles functionality of the cart page.
 
@@ -61,7 +62,7 @@ function Cart() { // Handles functionality of the cart page.
         DeleteItem(item, array);
         localStorage.setItem('items', JSON.stringify(array));
         setBuyedItems(array)
-
+        PriceHandler(array);
     }
 
         return (
@@ -69,7 +70,6 @@ function Cart() { // Handles functionality of the cart page.
                 <div className="subtotal"><h1>Cart</h1></div>
                 <ul className="cart-items">
                     {buyedItems.map(item => {
-
                         return(
                             <li key={item.id} className="shop-item">
                                 <p>{item.title}</p>
@@ -77,11 +77,8 @@ function Cart() { // Handles functionality of the cart page.
                                 <button className="additem-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>+</button>
                                 <input type="number" value={item.ammount} onChange={(event) => {inputHandler(item, event)}}/>
                                 <button className="delete-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>Delete</button>
-                                
                             </li>
-                            
                         )
-
                     })}
                 </ul>
                 <div className="subtotal"><p>Subtotal:</p></div>
