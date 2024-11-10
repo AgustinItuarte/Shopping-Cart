@@ -72,7 +72,7 @@ function Cart() { // Handles functionality of the cart page.
                     <div key={item.id} className="shop-item">
                         <p>{item.title}</p>
                         <p>Amount: {item.ammount}</p>
-                        <p>Price: </p>
+                        <p>Price: {item.price}</p>
                         <button className="additem-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>+</button>
                         <input type="number" value={item.ammount} onChange={(event) => {inputHandler(item, event)}}/>
                         <button className="delete-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>Delete</button>
