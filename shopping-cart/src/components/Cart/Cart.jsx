@@ -5,6 +5,7 @@ import PriceHandler from '../Cart/PriceHandler.jsx';
 function Cart() { // Handles functionality of the cart page.
 
     const [buyedItems, setBuyedItems] = useState([])
+    const [totalPrice, setTotalPrice] = useState()
     
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem('items'));
@@ -13,7 +14,9 @@ function Cart() { // Handles functionality of the cart page.
             if (items.length !== buyedItems.length) {
                 setBuyedItems(items);
             }
-        } 
+        }
+
+        setTotalPrice(PriceHandler(buyedItems))
                 
     }, [buyedItems], console.log(buyedItems));
 
@@ -32,6 +35,7 @@ function Cart() { // Handles functionality of the cart page.
                 const array = [...itemList];
                 localStorage.setItem('items', JSON.stringify(itemList));
                 setBuyedItems(array)
+                setTotalPrice(PriceHandler(array))
 
             };
 
@@ -43,12 +47,14 @@ function Cart() { // Handles functionality of the cart page.
                     itemList.splice([i], 1)
                     localStorage.setItem('items', JSON.stringify(itemList));
                     setBuyedItems(array)
+                    setTotalPrice(PriceHandler(array))
                     return
                 }
                
                 itemList[i].ammount = 1;
                 localStorage.setItem('items', JSON.stringify(itemList));
                 setBuyedItems(array)
+                setTotalPrice(PriceHandler(array))
 
             };
         }   
@@ -62,7 +68,7 @@ function Cart() { // Handles functionality of the cart page.
         DeleteItem(item, array);
         localStorage.setItem('items', JSON.stringify(array));
         setBuyedItems(array)
-        PriceHandler(array);
+        setTotalPrice(PriceHandler(array));
     }
 
         return (
@@ -81,7 +87,8 @@ function Cart() { // Handles functionality of the cart page.
                         )
                     })}
                 </ul>
-                <div className="subtotal"><p>Subtotal:</p></div>
+                <div className="subtotal"><p>Subtotal: {totalPrice}</p></div>
+                <button>Comprar</button>
             </div>    
         )
 }
