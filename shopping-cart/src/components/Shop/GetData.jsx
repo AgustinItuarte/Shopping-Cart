@@ -7,7 +7,7 @@ const GetData = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products", { mode: "cors" })
+    fetch("https://fakestoreapi.com/products/category/electronics", { mode: "cors" })
       .then((response) => {
         if (response.status >= 400) {
           throw new Error("server error");
