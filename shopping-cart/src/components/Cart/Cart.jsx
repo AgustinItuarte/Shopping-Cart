@@ -69,17 +69,18 @@ function Cart() { // Handles functionality of the cart page.
         localStorage.setItem('items', JSON.stringify(array));
         setBuyedItems(array)
         setTotalPrice(PriceHandler(array));
+        
     }
 
         return (
             <div className="cart-container">
-                <div className="subtotal"><h1>Cart</h1></div>
+                <div className="subtotal"><h1>Car t</h1></div>
                 <ul className="cart-items">
                     {buyedItems.map(item => {
                         return(
                             <li key={item.id} className="shop-item">
                                 <p>{item.title}</p>
-                                <p>Price: {item.price}</p>
+                                <p>Price: ${item.price}</p>
                                 <button className="additem-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>+</button>
                                 <input type="number" value={item.ammount} onChange={(event) => {inputHandler(item, event)}}/>
                                 <button className="delete-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>Delete</button>
@@ -87,10 +88,11 @@ function Cart() { // Handles functionality of the cart page.
                         )
                     })}
                 </ul>
-                <div className="subtotal"><p>Subtotal: {totalPrice}</p></div>
-                <button>Comprar</button>
+                <div className="subtotal"><p>Subtotal: ${totalPrice}</p></div>
+                <button onClick={() => {alert('Se ha realizado el pedido')}}>Comprar</button>
             </div>    
         )
 }
+
 
 export default Cart;
