@@ -33,9 +33,18 @@ body, .container {
     width: 80vw;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .shop-item{
     border: 3px solid black;
     margin: 5px;
     height: fit-content;
     width: fit-content;
+}
+
+img {
+    height: 15%;
+    width: 15%;
 }

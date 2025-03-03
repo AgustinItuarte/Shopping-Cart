@@ -79,6 +79,7 @@ function Cart() { // Handles functionality of the cart page.
                     {buyedItems.map(item => {
                         return(
                             <li key={item.id} className="shop-item">
+                                <img src={item.image} alt=""/>
                                 <p>{item.title}</p>
                                 <p>Price: ${item.price}</p>
                                 <button className="additem-btn" onClick={(event) => {handleAddDeleteButtons(item, buyedItems, event)}}>+</button>
