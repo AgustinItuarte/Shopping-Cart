@@ -74,7 +74,7 @@ function Cart() { // Handles functionality of the cart page.
 
         return (
             <div className="cart-container">
-                <div className="subtotal"><h1>Car t</h1></div>
+                <div className="subtotal"><h1>Cart</h1></div>
                 <ul className="cart-items">
                     {buyedItems.map(item => {
                         return(
