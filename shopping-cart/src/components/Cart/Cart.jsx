@@ -78,7 +78,7 @@ function Cart() { // Handles functionality of the cart page.
                 <ul className="cart-items">
                     {buyedItems.map(item => {
                         return(
-                            <li key={item.id} className="shop-item">
+                            <li key={item.id} className="buyed-item">
                                 <div>
                                     <img className="img-all" src={item.image} alt=""/>
                                 </div>

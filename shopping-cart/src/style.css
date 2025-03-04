@@ -43,6 +43,20 @@ p {
 
 .shop-item{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    border: 3px solid black;
+    margin: 5px;
+    padding: 5px;
+    height: 45%;
+    width: 70%;
+}
+
+.buyed-item{
+    display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
@@ -54,17 +68,24 @@ p {
 
 .img-all {
     float: left;
-    height: 70px;
-    width: 70px;
+    height: 80px;
+    width: 80px;
+}
+
+.img-shop {
+    float: left;
+    height: 80px;
+    width: 90px;
 }
 
 .item-title {
     display: flex;
     align-items: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 40px;
+    overflow: auto;
+    text-overflow:ellipsis;
+    height: 40%;
     width: 100%;
+    font-size: 80%;
 }
 
 /* .img-all {

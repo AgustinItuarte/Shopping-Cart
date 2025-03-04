@@ -50,9 +50,13 @@ const Shop = () => {
 
             return(
                 <div key={item.id} className="shop-item">
-                    <img src={item.image}/>
-                    <p>{item.title}</p>
-                    <p>Price: {item.price}</p>
+                    <div>
+                        <img className="img-shop" src={item.image}/>
+                    </div>
+                    <div className="item-title">
+                        <p>{item.title}</p>
+                    </div>
+                    <p>Price: ${item.price}</p>
                     <button onClick={() => checkArray(item)}>Add to cart</button>
                 </div>
             )
