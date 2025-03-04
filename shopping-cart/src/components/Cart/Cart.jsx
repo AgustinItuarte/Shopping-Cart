@@ -75,6 +75,8 @@ function Cart() { // Handles functionality of the cart page.
         return (
             <div className="cart-container">
                 <div className="subtotal"><h1>Cart</h1></div>
+                <div className="subtotal"><p>Subtotal: ${totalPrice}</p></div>
+                <button onClick={() => {alert('Se ha realizado el pedido')}}>Comprar</button>   
                 <ul className="cart-items">
                     {buyedItems.map(item => {
                         return(
@@ -93,11 +95,9 @@ function Cart() { // Handles functionality of the cart page.
                         )
                     })}
                 </ul>
-                <div className="subtotal"><p>Subtotal: ${totalPrice}</p></div>
-                <button onClick={() => {alert('Se ha realizado el pedido')}}>Comprar</button>
+                           
             </div>    
         )
 }
-
 
 export default Cart;
