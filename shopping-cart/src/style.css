@@ -32,6 +32,8 @@ body, .container {
 }
 
 .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
     background-color: cornflowerblue;
     width: 80vw;
 }
@@ -50,23 +52,24 @@ p {
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color: white;
     gap: 5px;
     border: 3px solid black;
     margin: 5px;
     padding: 5px;
-    height: 45%;
-    width: 70%;
+
 }
 
 .buyed-item{
     display: flex;
     flex-direction: row;
     align-items: center;
+    background-color: white;
     gap: 10px;
     border: 3px solid black;
+    padding: 5px;
     margin: 5px;
-    height: 70%;
-    width: 80%;
+    width: 70%;
 }
 
 .img-all {
