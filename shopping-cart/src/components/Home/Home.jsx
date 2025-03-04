@@ -5,9 +5,9 @@ function Home() {
     return(
         <div className="container">
             <ul className="side-bar">
-                <li><Link to={"/"}>Home</Link></li>
-                <li><Link to={"/shop"}>Shop</Link></li>
-                <li><Link to={"/cart"}>Cart</Link></li>
+                <li><Link to={"/"}>H O M E</Link></li>
+                <li><Link to={"/shop"}>S H O P</Link></li>
+                <li><Link to={"/cart"}>C A R T</Link></li>
             </ul>
             <div className="content"><Outlet/></div>
         </div>
