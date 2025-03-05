@@ -36,9 +36,10 @@ body, .container {
 }
 
 .side-bar {
-    background-color: aqua;
+    background-color: #1e293b;
     flex-direction: column;
     text-align: center;
+    box-shadow: 5px 0 5px -5px #333;
     gap: 15%;
     font-size: 20px;
     width: 20vw;
@@ -71,6 +72,7 @@ p {
     border: 3px solid black;
     margin: 5px;
     padding: 5px;
+    box-shadow: 5px 0 5px -5px #333;
 }
 
 .buyed-item{
@@ -80,6 +82,7 @@ p {
     background-color: white;
     gap: 10px;
     border: 3px solid black;
+    box-shadow: 5px 0 5px -5px #333;
     padding: 5px;
     margin: 5px;
     width: 70%;
@@ -111,27 +114,22 @@ input {
     width: 30px;
 }
 
+a {
+    font-weight: bold;
+    color: white;
+}
+
 a:link {
     text-decoration: none;
 }
 
 a:hover {
-    background-color: aliceblue ;
+    background-color: black ;
 }
 
 a:active {
     color:aqua;
 }
-
-/* button {
-    transition-duration: 0.4s;
-}
-
-button:hover {
-    background-color: aqua;
-    color: white;
-    cursor:pointer;
-} */
 
 button {
     cursor: pointer;
