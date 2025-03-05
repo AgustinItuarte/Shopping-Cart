@@ -21,6 +21,7 @@ body, .container {
 .cart-container {
     width: 70vw;
     height: 100vh;
+    margin-bottom: 70px;
 }
 
 .cart-items {
@@ -104,4 +105,50 @@ p {
     height: 40%;
     width: 100%;
     font-size: 80%;
+}
+
+input {
+    width: 30px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: aliceblue ;
+}
+
+a:active {
+    color:aqua;
+}
+
+/* button {
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: aqua;
+    color: white;
+    cursor:pointer;
+} */
+
+button {
+    cursor: pointer;
+    border: none;
+    background-color: #1e293b;
+    font-weight: bold;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+button:hover {
+    transition: 0.1s;
+    box-shadow: 1px 1px 5px black;
+}
+
+button:active {
+    border: 1px solid #1e293b;
 }
