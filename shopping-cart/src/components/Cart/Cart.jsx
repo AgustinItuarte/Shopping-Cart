@@ -74,8 +74,10 @@ function Cart() { // Handles functionality of the cart page.
 
         return (
             <div className="cart-container">
-                <div className="subtotal"><p>Subtotal: ${totalPrice}</p></div>
-                <button onClick={() => {alert('Se ha realizado el pedido')}}>Comprar</button>   
+                <div className="buy-section">
+                    <p>Subtotal: ${totalPrice}</p>
+                    <button onClick={() => {alert('Se ha realizado el pedido')}}>Comprar</button>   
+                </div>
                 <ul className="cart-items">
                     {buyedItems.map(item => {
                         return(

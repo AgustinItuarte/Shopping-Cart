@@ -1,5 +1,11 @@
+@font-face {
+    font-family: Josefin Sans;
+    src: url('./Fonts/JosefinSans-Regular.ttf');
+}
+
 html, body {
     max-width: 100%;
+    font-family: 'Josefin Sans';
 }
 
 * {
@@ -68,6 +74,7 @@ p {
     align-items: center;
     text-align: center;
     background-color: white;
+    font-size: 1.2rem;
     gap: 5px;
     border: 3px solid black;
     margin: 5px;
@@ -80,6 +87,7 @@ p {
     flex-direction: row;
     align-items: center;
     background-color: white;
+    font-size: 1.2rem;
     gap: 10px;
     border: 3px solid black;
     box-shadow: 5px 0 5px -5px #333;
@@ -149,4 +157,11 @@ button:hover {
 
 button:active {
     border: 1px solid #1e293b;
+}
+
+.buy-section {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    gap: 3%;
 }
